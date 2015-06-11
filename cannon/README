@@ -1,0 +1,66 @@
+Compile and run as root ($ sudo -i)
+
+Uses default definitions found in the top of the Makefile
+
+$ make
+$ ./main.x
+
+NOTES:
+
+One must take care to balance the work across cores with
+appropriate values for the following command line args.
+
+COMMAND LINE:
+
+-n [on-chip matrix dimension]
+	This is the on-chip matrix size (typically up to 128
+	for Epiphany III or up to 256 for Epiphany IV)
+
+-s [off-chip scale factor]
+	This value is the amount of off-chip blocks to use.
+	Setting -n 128 and -s 2, will perform a 256x256
+	matrix multiply.  Use -s 1 for default.
+
+-s2 [host scale factor]
+	This value is the amount of host blocks to use.
+	Setting -n 128, -s 12, and -s2 2, will perform a
+	3072x3072 matrix multiply.  The s2 host scale factor
+	should only be used when the problem exceeds the 32 MB
+	of shared memory (typically, problems larger than
+	1536x1536).
+
+-d [eCore dimension]
+	This is the dimension of the 2D eCore array (typically
+	4 for Epiphany III or 8 for Epiphany IV).  You may use
+	less than the number of cores available but is the
+	behavior is undefined when using more.
+
+-v
+	Verbose output
+
+-h, --help
+	Lists help for commands
+
+Example uses:
+
+./main.x
+	Uses default definitions found in the top of the Makefile
+
+./main.x -n 128 -s 1 -d 4
+	Performs a 128x128 matrix multiply with each eCore in a
+	4x4 core array getting a 32x32 block
+
+./main.x -n 128 -s 2 -d 4
+	Performs a 256x256 matrix multiply with each eCore in a
+	4x4 core array getting a 32x32 block. Additional values
+	load from shared memory (performance takes a hit)
+
+./main.x -n 96 -s 1 -d 3
+	Performs a 96x96 matrix multiply with a block of 3x3
+	eCores getting a 32x32 block.  The remaining cores do
+	not participate in the calculation
+
+./main.x -n 128 -s 12 -s2 2 -d 4
+	Performs a 3072x3072 matrix multiply with each eCore in a
+	4x4 core array getting a 32x32 block. Additional values
+	load from shared and main memory.

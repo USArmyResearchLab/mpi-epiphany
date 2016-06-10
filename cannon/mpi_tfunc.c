@@ -38,7 +38,7 @@ void MatrixMultiply(int n, float *a, float *b, float *c);
 
 typedef struct { int N; int s; int d; float* ga; float* gb; float* gc;} my_args_t;
 
-__kernel void
+void __entry
 my_thread( void* p) {
 
 	my_args_t* pargs = (my_args_t*)p;

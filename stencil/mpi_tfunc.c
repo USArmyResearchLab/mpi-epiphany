@@ -43,7 +43,7 @@ typedef struct {
    float w0, w1, w2, w3, w4, w5;
 } my_args_t;
 
-__kernel void
+void __entry
 stencil_thread( void* p )
 {
 	my_args_t* pargs = (my_args_t*)p;

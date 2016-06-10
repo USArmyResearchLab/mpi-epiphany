@@ -8,14 +8,14 @@ distributed across the 16 Epiphany cores.
 The codes were developed by the US Army Research Laboratory, Computational
 Sciences Division, Computing Architectures Branch.
 
-The examples were tested on the 2015 Parallella image.
+The examples were tested on the 2015.1 Parallella image.
 
 In order to build and test this example, at present you need to download and
-install a preview release of the `libcoprthr_mpi` library that has been made to
-work with the COPRTHR SDK version 1.6.1. The preview library is presently free
-to download and use for experimentation (non-commercial use).
+install a [pre-release COPRTHR-2 (Anthem)
+library](http://www.browndeertechnology.com/anthem.htm). The library is
+presently free to download and use for experimentation (non-commercial use).
 
--JAR Updated 6/11/15
+-JAR Updated 6/10/16
 
 Cannon's Algorithm for Dense Matrix-Matrix Multiply
 ------

@@ -34,7 +34,7 @@
 #include <coprthr_mpi.h>
 #include "nbody.h"
 
-__kernel void
+void __entry
 nbody_thread( void* p )
 {
 	my_args_t* pargs = (my_args_t*)p;

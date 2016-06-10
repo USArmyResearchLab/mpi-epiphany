@@ -151,7 +151,7 @@ typedef struct {
 	cfloat* data2; 
 } my_args_t;
 
-__kernel void
+void __entry
 fft_thread( void* p) {
 
 	my_args_t* pargs = (my_args_t*)p;

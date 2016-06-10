@@ -142,7 +142,7 @@ void update_particles_epiphany(Particle* particles, ParticleV* state, int n, int
 	if (dd<0) ERROR("device open failed\n");
 
 	coprthr_program_t prg;
-	if (s==1) prg = coprthr_cc_read_bin("./mpi_tfunc.cbin.3.e32", 0);
+	if (s==1) prg = coprthr_cc_read_bin("./mpi_tfunc.e32", 0);
 	else prg = coprthr_cc_read_bin("./mpi_tfunc2.cbin.3.e32", 0); // special off-chip thread function
 	coprthr_sym_t thr = coprthr_getsym(prg,"nbody_thread");
 	printf("prg=%p thr=%p\n",prg,thr);

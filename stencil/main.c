@@ -103,7 +103,7 @@ void update_stencil_epiphany(float* A, float* B, int ni, int nj, int di, int dj,
 	coprthr_mem_t A_mem = coprthr_dmalloc(dd,ni*nj*sizeof(float),0);
 	coprthr_mem_t B_mem = coprthr_dmalloc(dd,ni*nj*sizeof(float),0);
 
-	coprthr_program_t prg = coprthr_cc_read_bin("./mpi_tfunc.cbin.3.e32", 0);
+	coprthr_program_t prg = coprthr_cc_read_bin("./mpi_tfunc.e32", 0);
 	coprthr_sym_t thr = coprthr_getsym(prg,"stencil_thread");
 	printf("prg=%p thr=%p\n",prg,thr);
 
